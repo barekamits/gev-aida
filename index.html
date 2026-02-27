@@ -350,12 +350,12 @@
 
         .schedule-item.left {
             text-align: right;
-            margin-top: 60px;
+            margin-top: 20px;
         }
 
         .schedule-item.right {
             text-align: left;
-            margin-top: 5%;
+            margin-top: 1%;
         }
 
         .s-time {
@@ -372,19 +372,18 @@
             font-size: 20px;
             font-weight: bold;
             color: #2c2c2c;
-            margin-top: -8px;
-            letter-spacing: 0.06em;
+            margin-top: 6px;
         }
 
         .s-desc {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Vrdznagir', serif;
             font-size: 12px;
             color: #777;
             margin: 2px 0 10px;
-            line-height: 1.5;
             font-style: italic;
+            text-align: center;
+            white-space: nowrap;   /* 👈 սա կդնի մեկ տողի վրա */
         }
-
         .stop-dot {
             position: absolute;
             width: 12px;
@@ -758,32 +757,46 @@
 
                 <!-- Stop 1 -->
                 <div class="schedule-item left" id="stop1" style="top: -10px; right: calc(50% + 18px);">
-                    <div class="s-time">11:00</div>
+                    <div class="s-time">10:30</div>
                     <div class="s-title">Փեսայի Տուն</div>
-                    <div class="s-desc">Աբովյան 32, բն. 15</div>
+                    <div class="s-desc">Գյուղ Գեղարքունիք, <br>Կարեն Դեմրճյան փակուղի 9, տուն 3</div>
                 </div>
 
                 <!-- Stop 2 -->
                 <div class="schedule-item right" id="stop2" style="top: 130px; left: calc(50% + 18px);">
-                    <div class="s-time">12:30</div>
+                    <div class="s-time">11:30</div>
                     <div class="s-title">Հարսի Տուն</div>
-                    <div class="s-desc">Ազատության 10, բն․ 5</div>
+                    <div class="s-desc">Ք.Գավառ, Շահումյան 135</div>
                 </div>
 
                 <!-- Stop 3 -->
+            
                 <div class="schedule-item left" id="stop3" style="top: 295px; right: calc(50% + 18px);">
-                    <div class="s-time">15:00</div>
+                    <div class="s-time">13:30</div>
                     <div class="s-title">Պսակադրություն</div>
-                    <div class="s-desc">Սաղմոսավանք</div>
-                    <a href="#" class="btn-nav">Ինչպես հասնել</a>
+                    <div class="s-desc">Ք. Գավառ, Սուրբ Աստվածածին եկեղեցի</div>
+
+                    <a href="https://maps.app.goo.gl/w6K8oBFTZrgDQBfVA"
+                       class="btn-nav"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                       Ինչպես հասնել
+                    </a>
                 </div>
 
+                
+
                 <!-- Stop 4 -->
-                <div class="schedule-item right" id="stop4" style="top: 460px; left: calc(50% + 18px);">
+                <div class="schedule-item right" id="stop4" style="top: 440px; left: calc(50% + 18px);">
                     <div class="s-time">17:30</div>
                     <div class="s-title">Տոնական Խնջույք</div>
-                    <div class="s-desc">Հրաշք Այգի</div>
-                    <a href="#" class="btn-nav">Ինչպես հասնել</a>
+                    <div class="s-desc">Բայազետ Հոլլ</div>
+                    <a href="https://maps.app.goo.gl/vjEaMm3QiyvWtP1o7"
+                       class="btn-nav"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                       Ինչպես հասնել
+                    </a>
                 </div>
             </div>
             <!-- end location-wrapper -->
@@ -794,34 +807,37 @@
 
             <!-- ═══ CALENDAR ═══ -->
             <div class="calendar-container">
-                <p class="big-date">15/10</p>
-                <p class="month-text">15 Հոկտեմբերի</p>
+                <p class="big-date">19/03</p>
+                <p class="month-text">19 Մարտի</p>
                 <table>
                     <tr>
-                        <th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>San</th>
+                        <th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th>
                     </tr>
                     <tr>
-                        <td></td><td></td><td></td><td></td><td></td><td>1</td><td>2</td>
+                        <td></td><td></td><td></td><td></td><td></td><td></td><td>1</td>
                     </tr>
                     <tr>
-                        <td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
+                        <td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td>
                     </tr>
                     <tr>
-                        <td>10</td><td>11</td>
+                        <td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td>
+                    </tr>
+                    <tr>
+                        <td>16</td><td>17</td><td>18</td>
                         <td class="heart">
                             <svg viewBox="0 0 24 24">
                                 <path d="M12 21s-6-4.35-9-8.7C-1.5 6.6 4.5 0 12 5.25 
                                          19.5 0 25.5 6.6 21 12.3c-3 4.35-9 8.7-9 8.7z"/>
                             </svg>
-                            <span>15</span>
+                            <span>19</span>
                         </td>
-                        <td>12</td><td>13</td><td>14</td><td>16</td>
+                        <td>20</td><td>21</td><td>22</td>
                     </tr>
                     <tr>
-                        <td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td>
+                        <td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td>
                     </tr>
                     <tr>
-                        <td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td>
+                        <td>30</td><td>31</td><td></td><td></td><td></td><td></td><td></td>
                     </tr>
                 </table>
             </div>
