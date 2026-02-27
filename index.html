@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crafty+Girls&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Allura&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background-color: #e8e0d6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 20px 20px;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        @font-face {
+            font-family: 'Island-Moments';
+            src: url("IslandMoments-Regular.ttf") format('truetype');
+        }
+        @font-face {
+            font-family: 'HEGHNAR';
+            src: url("HEGHNAR.TTF") format('truetype');
+        }
+        @font-face {
+            font-family: 'Vrdznagir';
+            src: url("Vrdznagir.otf") format('opentype');
+        }
+        
+        .invitation-card {
+            background-color: #e8e0d6;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            padding: 40px 30px;
+            position: relative;
+        }
+        
+        .main-title {
+            font-family: 'Heghnar';
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: #2c2c2c;
+            letter-spacing: 0.1em;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .amp {
+            font-family: 'Italianno';
+            font-size: 60px;
+            color: inherit;
+            display: inline-block;
+            line-height: 1;
+        }
+
+        .date-info {
+            font-family: 'Crafty Girls';
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+            font-size: 2.1rem;
+            color: #2c2c2c;
+            font-weight: bold;
+        }
+        
+        .date-info::after {
+            content: '';
+            position: absolute;
+            width: 80%;
+            height: 1px;
+            background-color: #2c2c2c;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 30px;
+        }
+        
+        /* ── COUPLE PHOTO: մեծացված 300px → 420px ── */
+        .couple-photo {
+            width: 100%;
+            height: 420px;
+            background: linear-gradient(135deg, #f0f0f0, #d0d0d0);
+            border-radius: 8px;
+            margin-bottom: 50px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            filter: grayscale(100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .photo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+            filter: grayscale(100%);
+        }
+        
+        /* ═══ ENVELOPE ═══ */
+        #envelope {
+            position: relative;
+            width: 280px;
+            height: 180px;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+            margin-left: auto;
+            margin-right: auto;
+            top: -100px;
+            background-color: #BEBEBE;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .front {
+            position: absolute;
+            width: 0;
+            height: 0;
+            z-index: 3;
+        }
+
+        .flap {
+            border-left: 140px solid transparent;
+            border-right: 140px solid transparent;
+            border-bottom: 82px solid transparent;
+            border-top: 98px solid #7D7D7D;
+            transform-origin: top;
+        }
+
+        .pocket {
+            border-left: 140px solid #BEBEBE;
+            border-right: 140px solid #BEBEBE;
+            border-bottom: 90px solid #A9A9A9;
+            border-top: 90px solid transparent;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+        }
+        
+        .letter {
+            position: relative;
+            background-color: #fff;
+            width: 90%;
+            height: 90%;
+            margin: 5% auto;
+            border-radius: 6px;
+            box-shadow: 0 2px 26px rgba(0,0,0,0.12);
+        }
+
+        .letter:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-image: linear-gradient(180deg, rgba(255,255,255,0) 25%, rgba(215,227,239,0.7) 55%, rgba(215,227,239,1) 100%);
+        }
+
+        .closing-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Vrdznagir', serif;
+            font-size: 20px;
+            font-style: italic;
+            color: #222;
+            white-space: nowrap;
+        }
+
+        .heart-outline {
+            width: 24px;
+            height: 24px;
+            transform: rotate(10deg);
+        }
+
+        .open .flap {
+            transform: rotatex(180deg);
+            transition: transform 0.4s ease, z-index 0.6s;
+            z-index: 1;
+        }
+        
+        .close .flap {
+            transform: rotatex(0deg);
+            transition: transform 0.4s 0.6s ease, z-index 1s;
+            z-index: 5;
+        }
+        
+        .close .letter {
+            transform: translatey(0px);
+            transition: transform 0.4s ease, z-index 1s;
+            z-index: 1;
+        }
+        
+        .open .letter {
+            transform: translatey(-60px);
+            transition: transform 0.4s 0.6s ease, z-index 0.6s;
+            z-index: 2;
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; transform: scale(1); }
+            to { opacity: 0; transform: scale(0.9); }
+        }
+
+        .disappear {
+            animation: fadeOut 1s ease forwards;
+        }
+        
+        .envelope-wrapper {
+            height: 380px;
+        }
+
+        /* ═══ MAIN CONTENT ═══ */
+        .content {
+            display: none;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .content.show {
+            display: block;
+        }
+
+        #music-btn {
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transform: translateY(-40px);
+        }
+
+        .image img {
+            width: 300px;
+            height: 200px;
+            cursor: pointer;
+            transform: translateY(-30px);
+        }
+
+        /* ═══ LOCATION PATH — կրճատված height: 780px → 620px ═══ */
+        .location-wrapper {
+            position: relative;
+            width: 100%;
+            height: 620px;
+            margin-top: -60px;
+            overflow: visible;
+        }
+
+        .path-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 620px;
+            overflow: visible;
+        }
+
+        .dotted-path {
+            fill: none;
+            stroke: #5c4a3a;
+            stroke-width: 3;
+            stroke-dasharray: 1, 14;
+            stroke-linecap: round;
+            opacity: 0.75;
+        }
+
+        .location-traveler {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            pointer-events: none;
+            z-index: 10;
+            filter: drop-shadow(0 3px 8px rgba(92, 74, 58, 0.45));
+            top: 0;
+            left: 0;
+        }
+
+        .location-traveler svg {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* ── Կրճատված path: 780 → 620, S-կորերը մոտեցրած ── */
+        .location-traveler.animate-path {
+            offset-path: path('M 200 10 C 320 10, 320 140, 200 150 C 80 160, 80 290, 200 300 C 320 310, 320 440, 200 450 C 80 460, 80 590, 200 610');
+            offset-distance: 0%;
+            offset-rotate: 0deg;
+            animation: travelPath 12s ease-in-out forwards;
+            animation-play-state: paused;
+        }
+
+        .location-traveler.animate-path.playing {
+            animation-play-state: running;
+        }
+
+        @keyframes travelPath {
+            0%   { offset-distance: 0%; }
+            8%   { offset-distance: 0%; }
+            33%  { offset-distance: 33%; }
+            41%  { offset-distance: 33%; }
+            58%  { offset-distance: 66%; }
+            66%  { offset-distance: 66%; }
+            83%  { offset-distance: 100%; }
+            100% { offset-distance: 100%; }
+        }
+
+        .schedule-item {
+            position: absolute;
+            max-width: 160px;
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .schedule-item.visible {
+            opacity: 1;
+            transform: translateY(0) !important;
+        }
+
+        .schedule-item.left {
+            text-align: right;
+            margin-top: 60px;
+        }
+
+        .schedule-item.right {
+            text-align: left;
+            margin-top: 5%;
+        }
+
+        .s-time {
+            font-size: 42px;
+            font-family: 'HEGHNAR';
+            color: rgba(44, 44, 44, 0.12);
+            font-weight: bold;
+            line-height: 1;
+            letter-spacing: 0.02em;
+        }
+
+        .s-title {
+            font-family: 'Vrdznagir';
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c2c2c;
+            margin-top: -8px;
+            letter-spacing: 0.06em;
+        }
+
+        .s-desc {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 12px;
+            color: #777;
+            margin: 2px 0 10px;
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        .stop-dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #5c4a3a;
+            border-radius: 50%;
+            z-index: 5;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .stop-dot.visible {
+            opacity: 1;
+        }
+
+        .btn-nav {
+            display: inline-block;
+            padding: 5px 14px;
+            border: 1px solid #b0a090;
+            cursor: pointer;
+            font-size: 10px;
+            font-family: 'Vrdznagir';
+            color: #5c4a3a;
+            background-color: transparent;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all 0.3s;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-nav:hover {
+            background: #5c4a3a;
+            color: white;
+            border-color: #5c4a3a;
+        }
+
+        /* ═══ COUPLE 2 PHOTO ═══ */
+        .ketagic-bg {
+            position: relative;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .ketagic-bg img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 12px;
+            opacity: 0.85;
+        }
+
+        /* ═══ DRESS CODE ═══ */
+        .dress-code {
+            text-align: center;
+            padding: 60px 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .dress-text,
+        .dress-colors span {
+            font-family: 'Vrdznagir';
+            opacity: 0;
+        }
+
+        .dress-colors {
+            position: relative;
+            margin-top: 25px;
+            transform: scale(0.8);
+        }
+
+        .dress-title {
+            font-family: 'HEGHNAR';
+            font-size: 48px;
+        }
+
+        .dress-title.animate { animation: slideDown 1s forwards; }
+        .dress-text.animate { animation: slideDown 1s forwards 0.3s; }
+        .dress-colors span.animate:nth-child(1) { animation: slideIn 0.6s forwards 0.6s; --start: -50px; }
+        .dress-colors span.animate:nth-child(2) { animation: slideIn 0.6s forwards 0.7s; --start: 50px; }
+        .dress-colors span.animate:nth-child(3) { animation: slideIn 0.6s forwards 0.8s; --start: -50px; }
+        .dress-colors span.animate:nth-child(4) { animation: slideIn 0.6s forwards 0.9s; --start: 50px; }
+
+        @keyframes slideDown {
+            0% { transform: translateY(-50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateX(var(--start)); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        .dress-colors span {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .dress-colors span:hover { transform: scale(1.1); }
+
+        /* ═══ CALENDAR ═══ */
+        .calendar-container {
+            position: relative;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        .big-date {
+            font-size: 60px;
+            font-weight: 300;
+            color: rgba(0,0,0,0.1);
+            margin: 0;
+            line-height: 1;
+        }
+
+        .month-text {
+            font-family: 'Vrdznagir';
+            font-size: 32px;
+            font-style: italic;
+            color: #333333;
+            margin-top: -4px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        th {
+            font-weight: 400;
+            padding: 10px;
+            color: #666;
+        }
+
+        td {
+            width: 40px;
+            height: 40px;
+            padding: 5px;
+            color: #333;
+            position: relative;
+        }
+
+        .heart {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 68%;
+        }
+
+        .heart svg {
+            width: 100%;
+            height: 100%;
+            stroke: #2c3e50;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .heart span {
+            position: absolute;
+            top: 48%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            font-size: 16px;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        /* ═══ RSVP ═══ */
+        #rsvpForm {
+            margin: 40px auto;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .name-fields {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .name-input {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 16px;
+            color: #3B3B28;
+            background-color: white;
+            border: 1px solid #3B3B28;
+            border-radius: 25px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .name-input::placeholder { color: #888; }
+
+        .name-input:focus {
+            border-color: #4c4731;
+            box-shadow: 0 0 0 2px rgba(76, 71, 49, 0.1);
+        }
+
+        .button-wrapper {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .btn-rsvp {
+            font-size: 18px;
+            color: white;
+            padding: 12px 45px;
+            border-radius: 40px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-yes { background-color: #4c4731; }
+        .btn-no  { background-color: #7b685b; }
+
+        .btn-rsvp:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .confirmation-message {
+            position: fixed;
+            top: 145px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            font-size: 18px;
+            color: #4c4731;
+            text-align: center;
+            opacity: 0;
+            transition: all 0.5s ease;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px 30px;
+            border-radius: 20px;
+            border: 1px solid #4c4731;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            max-width: 350px;
+            pointer-events: none;
+        }
+
+        .confirmation-message.show {
+            opacity: 1;
+            animation: slideInFromTop 0.6s ease-out;
+        }
+
+        .confirmation-message.hide {
+            animation: slideOutToTop 0.5s ease-in;
+        }
+
+        .error-message {
+            color: #d32f2f !important;
+            border-color: #d32f2f !important;
+            background-color: rgba(255, 235, 238, 0.95) !important;
+        }
+
+        @keyframes slideInFromTop {
+            from { opacity: 0; transform: translateX(-50%) translateY(-100px); }
+            to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
+
+        @keyframes slideOutToTop {
+            from { opacity: 1; transform: translateX(-50%) translateY(0); }
+            to   { opacity: 0; transform: translateX(-50%) translateY(-100px); }
+        }
+
+        .message-title {
+            font-family: 'Vrdznagir', sans-serif;
+            font-size: 22px;
+            margin-bottom: 8px;
+            color: #4c4731;
+        }
+
+        .message-text {
+            font-family: 'Vrdznagir', sans-serif;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <div class="invitation-card">
+        <h1 class="main-title">
+            Gevorg <br> <span class="amp">&</span> <br> Aida
+        </h1>
+
+        <div class="date-info">
+            <span>19 MARCH</span>
+            <span>2026</span>
+        </div>
+        
+        <div class="couple-photo">
+            <div class="photo-placeholder">
+                <img src="IMG_2981.JPG">
+            </div>
+        </div>
+        
+        <div class="envelope-wrapper">
+            <div id="envelope" class="close">
+                <div class="front flap"></div>
+                <div class="front pocket"></div>
+                <div class="letter">
+                    <div class="closing-text">
+                        Մենք ամուսնանում ենք
+                        <svg class="heart-outline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#5C1A1A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.84 4.61c-1.54-1.3-3.77-1.3-5.31 0L12 8.09l-3.53-3.48c-1.54-1.3-3.77-1.3-5.31 0-1.55 1.31-1.55 3.43 0 4.74L12 21.35l8.84-11.99c1.55-1.31 1.55-3.43 0-4.75z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content" id="content">
+
+            <img id="music-btn" src="pause.png" alt="Play">
+            <audio id="bg-music" src="asmunq.mp3.m4a"></audio>
+
+            <div class="image">
+                <img src="removedmap.png" alt="Սիրտ">
+            </div>
+
+            <!-- ═══ ANIMATED LOCATION PATH ═══ -->
+            <div class="location-wrapper" id="locationWrapper">
+                <!-- Կրճատված SVG path -->
+                <svg class="path-svg" id="pathSvg" viewBox="0 0 400 620" preserveAspectRatio="none">
+                    <path
+                        id="travelPath"
+                        class="dotted-path"
+                        d="M 200 10
+                           C 320 10, 320 140, 200 150
+                           C 80 160, 80 290, 200 300
+                           C 320 310, 320 440, 200 450
+                           C 80 460, 80 590, 200 610"
+                    />
+                </svg>
+
+                <!-- Stop dots — թարմացված դիրքեր -->
+                <div class="stop-dot" id="dot1" style="left:50%; top:10px;"></div>
+                <div class="stop-dot" id="dot2" style="left:30%; top:175px;"></div>
+                <div class="stop-dot" id="dot3" style="left:75%; top:370px;"></div>
+                <div class="stop-dot" id="dot4" style="left:25%; top:530px;"></div>
+
+                <!-- Traveling location icon -->
+                <div class="location-traveler animate-path" id="locationIcon">
+                    <svg viewBox="0 0 24 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 1C7.029 1 3 5.029 3 10c0 7 9 19 9 19s9-12 9-19c0-4.971-4.029-9-9-9z"
+                            fill="#5c4a3a" stroke="#3a2e24" stroke-width="0.8"/>
+                        <circle cx="12" cy="10" r="4" fill="#e8e0d6"/>
+                    </svg>
+                </div>
+
+                <!-- Stop 1 -->
+                <div class="schedule-item left" id="stop1" style="top: -10px; right: calc(50% + 18px);">
+                    <div class="s-time">11:00</div>
+                    <div class="s-title">Փեսայի Տուն</div>
+                    <div class="s-desc">Աբովյան 32, բն. 15</div>
+                </div>
+
+                <!-- Stop 2 -->
+                <div class="schedule-item right" id="stop2" style="top: 130px; left: calc(50% + 18px);">
+                    <div class="s-time">12:30</div>
+                    <div class="s-title">Հարսի Տուն</div>
+                    <div class="s-desc">Ազատության 10, բն․ 5</div>
+                </div>
+
+                <!-- Stop 3 -->
+                <div class="schedule-item left" id="stop3" style="top: 295px; right: calc(50% + 18px);">
+                    <div class="s-time">15:00</div>
+                    <div class="s-title">Պսակադրություն</div>
+                    <div class="s-desc">Սաղմոսավանք</div>
+                    <a href="#" class="btn-nav">Ինչպես հասնել</a>
+                </div>
+
+                <!-- Stop 4 -->
+                <div class="schedule-item right" id="stop4" style="top: 460px; left: calc(50% + 18px);">
+                    <div class="s-time">17:30</div>
+                    <div class="s-title">Տոնական Խնջույք</div>
+                    <div class="s-desc">Հրաշք Այգի</div>
+                    <a href="#" class="btn-nav">Ինչպես հասնել</a>
+                </div>
+            </div>
+            <!-- end location-wrapper -->
+
+            <div class="ketagic-bg">
+                <img src="IMG_2988.JPG" alt="Nkar">
+            </div>
+
+            <!-- ═══ CALENDAR ═══ -->
+            <div class="calendar-container">
+                <p class="big-date">15/10</p>
+                <p class="month-text">15 Հոկտեմբերի</p>
+                <table>
+                    <tr>
+                        <th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>San</th>
+                    </tr>
+                    <tr>
+                        <td></td><td></td><td></td><td></td><td></td><td>1</td><td>2</td>
+                    </tr>
+                    <tr>
+                        <td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
+                    </tr>
+                    <tr>
+                        <td>10</td><td>11</td>
+                        <td class="heart">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 21s-6-4.35-9-8.7C-1.5 6.6 4.5 0 12 5.25 
+                                         19.5 0 25.5 6.6 21 12.3c-3 4.35-9 8.7-9 8.7z"/>
+                            </svg>
+                            <span>15</span>
+                        </td>
+                        <td>12</td><td>13</td><td>14</td><td>16</td>
+                    </tr>
+                    <tr>
+                        <td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td>
+                    </tr>
+                    <tr>
+                        <td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- ═══ RSVP FORM ═══ -->
+            <form id="rsvpForm" class="name-fields">
+                <input type="text" name="firstName" class="name-input" placeholder="Անուն" required>
+                <input type="text" name="lastName" class="name-input" placeholder="Ազգանուն" required>
+                <input type="hidden" name="response" id="responseInput">
+                <div class="button-wrapper">
+                    <button type="button" class="btn-rsvp btn-yes" onclick="setResponseAndSubmit('Գալիս եմ')">Գալիս եմ</button>
+                    <button type="button" class="btn-rsvp btn-no" onclick="setResponseAndSubmit('Չեմ գալիս')">Չեմ գալիս</button>
+                    <button type="submit" id="submitBtn" style="display:none;">Ուղարկել</button>
+                </div>
+                <div class="confirmation-message" id="successMessage" style="display:none;"></div>
+                <div class="confirmation-message error-message" id="errorMessage" style="display:none;"></div>
+            </form>
+
+        </div>
+        <!-- end content -->
+    </div>
+
+<script>
+    /* ═══ ENVELOPE ═══ */
+    document.addEventListener('DOMContentLoaded', function () {
+        var envelope = document.getElementById('envelope');
+        var music = document.getElementById('bg-music');
+        var content = document.getElementById('content');
+        var musicBtn = document.getElementById('music-btn');
+        var isPlaying = false;
+
+        envelope.addEventListener('click', function () {
+            if (envelope.classList.contains('close')) {
+                envelope.classList.remove('close');
+                envelope.classList.add('open');
+
+                setTimeout(function () {
+                    envelope.classList.add('disappear');
+                    content.classList.add('show');
+                    setTimeout(initScrollAnimations, 300);
+                    setTimeout(function () {
+                        envelope.style.display = 'none';
+                    }, 1000);
+                }, 2500);
+            }
+        });
+
+        if (musicBtn) {
+            musicBtn.addEventListener('click', () => {
+                if (isPlaying) {
+                    music.pause();
+                    musicBtn.src = 'play.png';
+                } else {
+                    music.play();
+                    musicBtn.src = 'pause.png';
+                }
+                isPlaying = !isPlaying;
+            });
+        }
+    });
+
+    /* ═══ SCROLL ANIMATIONS ═══ */
+    function initScrollAnimations() {
+        const wrapper = document.getElementById('locationWrapper');
+        const icon = document.getElementById('locationIcon');
+
+        const wrapperObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    icon.classList.add('playing');
+
+                    const delays = [200, 4000, 7000, 10000];
+                    const items = ['stop1', 'stop2', 'stop3', 'stop4'];
+                    const dots  = ['dot1',  'dot2',  'dot3',  'dot4'];
+
+                    items.forEach((id, i) => {
+                        setTimeout(() => {
+                            document.getElementById(id).classList.add('visible');
+                            document.getElementById(dots[i]).classList.add('visible');
+                        }, delays[i]);
+                    });
+
+                    wrapperObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        if (wrapper) wrapperObserver.observe(wrapper);
+
+        const dressSection = document.querySelector('.dress-code');
+        const dressObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelector('.dress-title').classList.add('animate');
+                    entry.target.querySelector('.dress-text').classList.add('animate');
+                    entry.target.querySelectorAll('.dress-colors span').forEach(span => span.classList.add('animate'));
+                    dressObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        if (dressSection) dressObserver.observe(dressSection);
+    }
+
+    /* ═══ RSVP ═══ */
+    (function () {
+        const FORM = document.getElementById('rsvpForm');
+        const OK   = document.getElementById('successMessage');
+        const ERR  = document.getElementById('errorMessage');
+        const ENDPOINT = "https://script.google.com/macros/s/AKfycbzMnMF8P0gJVkVipAeaBc9DRPH_sH-KnSqLKNaB6jq5bSMVOfJH0W2DjAJbyjYMFhPa/exec";
+
+        function showMsg(el, html) {
+            [OK, ERR].forEach(m => {
+                m.style.display = 'none';
+                m.classList.remove('show', 'hide');
+            });
+            el.innerHTML = html;
+            el.style.display = 'block';
+            setTimeout(() => el.classList.add('show'), 10);
+            setTimeout(() => {
+                el.classList.add('hide');
+                setTimeout(() => {
+                    el.style.display = 'none';
+                    el.classList.remove('show', 'hide');
+                }, 500);
+            }, 4000);
+        }
+
+        FORM.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const first = (FORM.querySelector('[name="firstName"]').value || '').trim();
+            const last  = (FORM.querySelector('[name="lastName"]').value || '').trim();
+
+            if (!first || !last) {
+                showMsg(ERR, '<div class="message-title">Skhal</div><div class="message-text">Khndrum enq lracnel anune ev azganuny</div>');
+                return;
+            }
+
+            const resp = (document.getElementById('responseInput').value || '').trim();
+            if (!resp) {
+                showMsg(ERR, '<div class="message-title">Skhal</div><div class="message-text">Yntrek galis ek, te voch</div>');
+                return;
+            }
+
+            const params = new URLSearchParams();
+            params.append('full_name', `${first} ${last}`);
+            params.append('firstName', first);
+            params.append('lastName', last);
+            params.append('response', resp);
+            params.append('attend', resp);
+            params.append('timestamp', new Date().toISOString());
+
+            fetch(ENDPOINT, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: params.toString()
+            }).catch(err => console.error('RSVP error:', err));
+
+            const responseText = resp === 'Գալիս եմ'
+                ? 'Մենք ստացել ենք Ձեր պատասխանը և ուրախ ենք կիսել օրը Ձեզ հետ'
+                : 'Շնորհակալ ենք պատասխանի համար';
+
+            showMsg(OK, '<div class="message-title">Shnorhakalutyun</div>' + `<div class="message-text">${responseText}</div>`);
+            FORM.reset();
+            document.getElementById('responseInput').value = '';
+        });
+
+        window.setResponseAndSubmit = function (answer) {
+            document.getElementById('responseInput').value = answer;
+            if (FORM.requestSubmit) FORM.requestSubmit();
+            else FORM.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+        };
+    })();
+</script>
+</body>
+</html>
