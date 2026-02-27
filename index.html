@@ -253,19 +253,20 @@
             display: block;
         }
 
-        #music-btn {
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            transform: translateY(-40px);
-        }
+      #music-btn {
+          width: 50px;
+          height: 50px;
+          cursor: pointer;
+          margin-bottom: 10px;
+      }
 
-        .image img {
-            width: 300px;
-            height: 200px;
-            cursor: pointer;
-            transform: translateY(-30px);
-        }
+
+      .image img {
+          width: 300px;
+          height: 200px;
+          cursor: pointer;
+         margin-top: -10px;
+      }
 
         /* ═══ LOCATION PATH — կրճատված height: 780px → 620px ═══ */
         .location-wrapper {
@@ -861,9 +862,9 @@
                     envelope.classList.add('disappear');
                     content.classList.add('show');
                     setTimeout(initScrollAnimations, 300);
-                    setTimeout(function () {
-                        envelope.style.display = 'none';
-                    }, 1000);
+                  setTimeout(function () {
+                      document.querySelector('.envelope-wrapper').style.display = 'none';
+                  }, 1000);;
                 }, 2500);
             }
         });
