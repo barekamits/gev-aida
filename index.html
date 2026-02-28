@@ -932,12 +932,12 @@
                     // ══ Ծրարը բացելուց հետո ավտոմատ նվագել ══
                     music.play().then(function () {
                         isPlaying = true;
-                        musicBtn.src = 'pause.png'; // pause icon — երաժշտությունը նվագում է
+                        musicBtn.src = 'play.png'; // pause icon — երաժշտությունը նվագում է
                     }).catch(function (err) {
                         // Բրաուզերը կարող է արգելել autoplay-ը — user կսեղմի կոճակը
                         console.warn('Autoplay blocked:', err);
                         isPlaying = false;
-                        musicBtn.src = 'play.png';
+                        musicBtn.src = 'pause.png';
                     });
 
                 }, 2500);
@@ -1075,3 +1075,4 @@
 </script>
 </body>
 </html>
+
