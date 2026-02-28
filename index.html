@@ -418,6 +418,67 @@
             color: white;
             border-color: #5c4a3a;
         }
+         /* Stop 1 հատուկ դասավորություն */
+            #stop1 {
+              text-align: center;
+            }
+
+            #stop1 .s-title {
+              white-space: nowrap; /* որ Տոնական Խնջույք-ը չիջնի նոր տող */
+            }
+
+            #stop1 .s-desc {
+              text-align: center;
+              margin-top: 4px;
+            }
+
+            #stop1 .btn-nav {
+              display: inline-block;
+              margin-top: 8px;
+            }
+        /* Stop 2 հատուկ դասավորություն */
+        #stop2 {
+          top: 160px !important;
+          left: calc(50% + 5px) !important;
+        }
+        /* Stop 4 հատուկ դասավորություն */
+        #stop3 {
+          text-align: center;
+        }
+
+        #stop3 .s-title {
+          white-space: nowrap; /* որ Տոնական Խնջույք-ը չիջնի նոր տող */
+        }
+
+        #stop3 .s-desc {
+          text-align: center;
+          margin-top: 4px;
+        }
+
+        #stop3 .btn-nav {
+          display: inline-block;
+          margin-top: 8px;
+        }
+        /* Stop 4 հատուկ դասավորություն */
+        #stop4 {
+          left: auto !important;
+          right: calc(8% + 4px) !important;
+          text-align: right; /* որ տեքստը ճիշտ դասավորվի */
+        }
+        
+        #stop4 .s-title {
+          white-space: nowrap; /* որ Տոնական Խնջույք-ը չիջնի նոր տող */
+        }
+
+        #stop4 .s-desc {
+          text-align: center;
+          margin-top: 4px;
+        }
+
+        #stop4 .btn-nav {
+          display: inline-block;
+          margin-top: 8px;
+        }
 
         /* ═══ COUPLE 2 PHOTO ═══ */
         .ketagic-bg {
@@ -492,7 +553,7 @@
         /* ═══ CALENDAR ═══ */
         .calendar-container {
             position: relative;
-            top: -20px;
+            top: -10px;
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
@@ -717,7 +778,7 @@
         <div class="content" id="content">
 
             <!-- Music button: controls play/pause after envelope opens -->
-            <img id="music-btn" src="pause.png" alt="Pause">
+            <img id="music-btn" src="play.png" alt="play">
             <audio id="bg-music" src="asmunq.mp3.m4a" loop></audio>
 
             <div class="image">
@@ -728,13 +789,13 @@
             <div class="location-wrapper" id="locationWrapper">
                 <svg class="path-svg" id="pathSvg" viewBox="0 0 400 620" preserveAspectRatio="none">
                     <path
-                        id="travelPath"
-                        class="dotted-path"
-                        d="M 200 10
-                           C 320 10, 320 140, 200 150
-                           C 80 160, 80 290, 200 300
-                           C 320 310, 320 440, 200 450
-                           C 80 460, 80 590, 200 610"
+                       id="travelPath"
+                       class="dotted-path"
+                       d="M 200 10
+                          C 320 10, 320 140, 200 150
+                          C 80 160, 80 290, 200 300
+                          C 320 310, 320 440, 200 450
+                          C 80 460, 80 590, 200 630"
                     />
                 </svg>
 
